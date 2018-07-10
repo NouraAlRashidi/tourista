@@ -1,16 +1,43 @@
 {% extends "base.html" %} 
+{% load static %}
 
 {% block title %}List{% endblock title %}
 
 {% block content %}
 <br>
-<div class="row">
-  {% for destination in destinations %}
-  <a href="{% url 'destination-detail' destination.id %}">
+<div class ="row">
+
+	{% for destination in destinations %}
+
+ <div class="card col-sm-12 col-md-6 col-lg-4" style="width: 18rem;">
+	  <img class="card-img-top" src="{{destination.pretty_picture.url}}" alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">{{destination.name}}</h5>
+	    <p class="card-text">{{destination.activities}}</p>
+	    <a href="{% url 'destination-detail' destination.id %}" class="btn btn-light">Explore</a>
+	  </div>
+	</div>
+
+{% endfor %}
+</div>
+</div>
+{% endblock content %}
+
+
+
+<!--
+
+<div class="carousel-item">
+  <img src="..." alt="...">
+  <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+</div>
+
+<a href="{% url 'destination-detail' destination.id %}">
     <img src="{{destination.pretty_picture.url}}" />
     <p>{{destination.name}}</p>
     <p>{{destination.activities}}</p>
   </a>
-  {% endfor %}
-</div>
-{% endblock content %}
+  -->

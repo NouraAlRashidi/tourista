@@ -1,12 +1,15 @@
 {% extends "base.html" %} 
+{% load static %}
 
 {% block title %}Detail{% endblock title %} 
 
 {% block content %}
-    <p>{{destination.name}}</p>
+
+<div class="container"> 
+    <h1>{{destination.name}}</h1>
     <p>{{destination.description}}</p>
     <p>{{destination.activities}}</p>
-    <p><img src="{{destination.pretty_picture.url}}"></p>
+    <p><img src=  {{destination.pretty_picture.url}}></p>
     <p>{{destination.optimal_visiting_season}}</p>
     <a href="{% url 'destination-update' destination.id %}">
         <button>Update</button>
